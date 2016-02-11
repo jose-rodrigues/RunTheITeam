@@ -3,11 +3,10 @@ class Warehouse:
         self.id = id
         self.data = data
         self.items = self.data['warehouses']['informations'][id]['products']
-        self.position = self.data['warehouses']['position']
+        self.position = self.data['warehouses']['informations'][id]['location']
 
     def load_item(self, item_id):
-        idx = self.items.index(item_id)
-        self.items.pop(idx)
+        self.items[item_id] -= 1
 
     def has_items(self, item_id):
-        return self.items.index(item_id) >= 0
+        return item_id < len(self.items) and self.items[item_id] > 0
