@@ -1,6 +1,5 @@
 import sys, itertools, json
 
-
 def get_data():
     data = {}
     contents = map(int, open(sys.argv[1]).read().replace("\n", ' '). split())
@@ -45,4 +44,4 @@ def get_data():
         data['orders']['informations'][i]['items']['products'] = []
         for j in range(0, data['orders']['informations'][i]['items']['number']):
             data['orders']['informations'][i]['items']['products'].append(contents.pop(0))
-    return data 
+    return data
